@@ -5,20 +5,35 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
     ViewPager viewPager = null;
     MenuItem prevMenuItem = null;
     BottomNavigationView bottomNavigationView;
+    Toolbar toolBar;
+    DrawerLayout drawerLayout;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        toolBar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolBar);
+
+        drawerLayout = findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawerLayout,toolBar,R.string.open_navigation_drawer,R.string.close_navigation_drawer);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+
 
         viewPager = findViewById(R.id.viewPager);
         viewPager.setAdapter(new MyAdapter(getSupportFragmentManager()));
@@ -50,6 +65,16 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+    }
+
+    @Override
+    public void onBackPressed(){
+        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }
+        else{
+            super.onBackPressed();
+        }
     }
 
     BottomNavigationView.OnNavigationItemSelectedListener navListner = new BottomNavigationView.OnNavigationItemSelectedListener() {
