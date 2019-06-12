@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -62,13 +63,16 @@ public class ScheduleFragment extends Fragment {
             if (id == 0) {
                 Toast.makeText(getContext(), sId + "NULL", Toast.LENGTH_SHORT).show();
             } else {
-                node[i].teacher_name = "RABI SHAW";
+                final int j = i;
+                node[i].teacher_name = "B.K.Singh";
                 node[i].subject_name = "OPERATING SYSTEMS";
                 node[i].room_no = "204";
-                final int j=i;
 
                 Button button = view.findViewById(id);
                 button.setText("CS501");
+                button.setBackgroundColor(Color.GREEN);
+                ViewGroup.LayoutParams lp = button.getLayoutParams();
+                ((LinearLayout.LayoutParams) lp).setMargins(5, 5, 5, 0);
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
