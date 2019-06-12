@@ -14,7 +14,6 @@
         android:showDividers="middle">
 
         <TableRow
-            android:layout_marginBottom="5dp"
             android:layout_weight="1"
             android:background="#dfffff">
 
@@ -22,7 +21,7 @@
                 android:id="@+id/a0"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="0.8"
+                android:layout_weight="0.1"
                 android:gravity="center"
                 android:text=" " />
 
@@ -78,14 +77,13 @@
         </TableRow>
 
         <TableRow
-            android:layout_marginBottom="5dp"
             android:layout_weight="1">
 
             <TextView
                 android:id="@+id/b0"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.01"
                 android:gravity="center"
                 android:text="8-9"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -123,14 +121,13 @@
         </TableRow>
 
         <TableRow
-            android:layout_marginBottom="5dp"
             android:layout_weight="1">
 
             <TextView
                 android:id="@+id/c0"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.01"
                 android:gravity="center"
                 android:text="9-10"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -173,9 +170,9 @@
 
             <TextView
                 android:id="@+id/d0"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.01"
                 android:gravity="center"
                 android:text="10-11"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -218,9 +215,9 @@
 
             <TextView
                 android:id="@+id/e0"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.01"
                 android:gravity="center"
                 android:text="11-12"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -263,9 +260,9 @@
 
             <TextView
                 android:id="@+id/f0"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.01"
                 android:gravity="center"
                 android:text="1-2"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -308,9 +305,9 @@
 
             <TextView
                 android:id="@+id/g0"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.01"
                 android:gravity="center"
                 android:text="2-3"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -353,9 +350,9 @@
 
             <TextView
                 android:id="@+id/h0"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.01"
                 android:gravity="center"
                 android:text="3-4"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -398,9 +395,9 @@
 
             <TextView
                 android:id="@+id/i0"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.01"
                 android:gravity="center"
                 android:text="4-5"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
