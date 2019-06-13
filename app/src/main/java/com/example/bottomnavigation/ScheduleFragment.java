@@ -31,9 +31,9 @@ public class ScheduleFragment extends Fragment {
         String teacher_name, subject_name, subject_code, room_no;
 
         public Node() {
-            this.teacher_name = "Teacher Name";
-            this.subject_name = "subject_name";
             this.subject_code = "subject_code";
+            this.subject_name = "subject_name";
+            this.teacher_name = "Teacher Name";
             this.room_no = "room_no";
         }
     }
@@ -42,7 +42,7 @@ public class ScheduleFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle saveInstanceState) {
-        View view = (View) inflater.inflate(R.layout.fragment_schedule, container, false);
+        View view = inflater.inflate(R.layout.fragment_schedule, container, false);
         generateObjectArrayNode(view);
 
         return view;
@@ -72,19 +72,22 @@ public class ScheduleFragment extends Fragment {
                 button.setText("CS501");
                 button.setBackgroundColor(Color.GREEN);
                 ViewGroup.LayoutParams lp = button.getLayoutParams();
-                ((LinearLayout.LayoutParams) lp).setMargins(5, 5, 5, 0);
+                ((LinearLayout.LayoutParams) lp).setMargins(2, 0, 3, 0);
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Dialog student_dialog = new Dialog(getContext());
                         student_dialog.setContentView(R.layout.schedule_student_dialog);
 
-                        TextView teacher_dialog, subject_dialog, room_dialog;
+                        TextView subject_code_dialog, subject_dialog, room_dialog;
+                        Button teacher_dialog;
                         teacher_dialog = student_dialog.getWindow().findViewById(R.id.dialog_teacher);
+                        subject_code_dialog = student_dialog.getWindow().findViewById(R.id.dialog_subject_code);
                         subject_dialog = student_dialog.getWindow().findViewById(R.id.dialog_subject);
                         room_dialog = student_dialog.getWindow().findViewById(R.id.dialog_room);
-                        teacher_dialog.setText(node[j].teacher_name);
+                        subject_code_dialog.setText(node[j].subject_code);
                         subject_dialog.setText(node[j].subject_name);
+                        teacher_dialog.setText(node[j].teacher_name);
                         room_dialog.setText(node[j].room_no);
 
                         student_dialog.setCanceledOnTouchOutside(true);

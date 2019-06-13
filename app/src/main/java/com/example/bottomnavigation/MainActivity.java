@@ -54,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
     }
 
     BottomNavigationView.OnNavigationItemSelectedListener navListner = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -80,23 +79,6 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
     };
-
-
-
-
-
-    public void onclick_schedule(View v) {
-//        Dialog student_dialog = new Dialog(MainActivity.this);
-//        student_dialog.setContentView(R.layout.schedule_student_dialog);
-//        TextView teacher_dialog, subject_dialog, room_dialog;
-//
-//        teacher_dialog = student_dialog.getWindow().findViewById(R.id.dialog_teacher);
-//        subject_dialog = student_dialog.getWindow().findViewById(R.id.dialog_subject);
-//        room_dialog = student_dialog.getWindow().findViewById(R.id.dialog_room);
-//
-//        student_dialog.setCanceledOnTouchOutside(true);
-//        student_dialog.show();
-    }
 
     class MyAdapter extends FragmentStatePagerAdapter {
 
@@ -133,6 +115,5 @@ public class MainActivity extends AppCompatActivity {
             return 5;
         }
     }
-
 
 }
