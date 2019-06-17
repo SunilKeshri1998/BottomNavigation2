@@ -1,18 +1,16 @@
 package com.example.bottomnavigation;
 
 import android.app.Dialog;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,10 +25,17 @@ import DataClass.ScheduleStudentListItemDataClass;
 
 public class ScheduleFragment extends Fragment {
 
+    SharedPreferences sharedPreferences;
+    public String MYPREFERENCE = "mypref";
+    public String SubcodeKey = "subcode";
+    public String SubnameKey = "subname";
+    public String TeachernameKey = "teachername";
+    public String RoomnoKey = "roomno";
+
     class Node {
         String teacher_name, subject_name, subject_code, room_no;
 
-        public Node() {
+        Node() {
             this.subject_code = "subject_code";
             this.subject_name = "subject_name";
             this.teacher_name = "Teacher Name";
@@ -44,6 +49,7 @@ public class ScheduleFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle saveInstanceState) {
         View view = inflater.inflate(R.layout.fragment_schedule, container, false);
         generateObjectArrayNode(view);
+        sharedPreferences = getContext().getSharedPreferences(MYPREFERENCE, Context.MODE_PRIVATE);
 
         return view;
     }
@@ -58,7 +64,7 @@ public class ScheduleFragment extends Fragment {
     private void setButtons(View view) {
         char x = 'b', y = '1';
         for (int i = 1; i <= 40; i++) {
-            String sId = Character.toString(x) + "" + Character.toString(y);
+            final String sId = Character.toString(x) + "" + Character.toString(y);
             int id = getResources().getIdentifier(sId, "id", getActivity().getPackageName());
             if (id == 0) {
                 Toast.makeText(getContext(), sId + "NULL", Toast.LENGTH_SHORT).show();
@@ -89,6 +95,13 @@ public class ScheduleFragment extends Fragment {
                         subject_dialog.setText(node[j].subject_name);
                         teacher_dialog.setText(node[j].teacher_name);
                         room_dialog.setText(node[j].room_no);
+
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putString(SubcodeKey + sId, node[j].subject_code);
+                        editor.putString(SubnameKey + sId, node[j].subject_name);
+                        editor.putString(TeachernameKey + sId, node[j].teacher_name);
+                        editor.putString(RoomnoKey + sId, node[j].room_no);
+                        editor.apply();
 
                         student_dialog.setCanceledOnTouchOutside(true);
                         student_dialog.show();
